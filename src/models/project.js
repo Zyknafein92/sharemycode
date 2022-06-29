@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const projectSchema = new Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 40,
+    },
     pages: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Page"}]
